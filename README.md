@@ -12,9 +12,9 @@ This repository provides the source code for the hill-climbing algorithm used in
 This code implements a secure hill-climbing algorithm for multi-issue negotiation using secret sharing.  
 We provide three versions for different purposes:
 
-- `test_random.py`: Basic implementation (random numbers generated internally).
-- `test_random_gen.py`: Generates random numbers and saves them to an external file for reproducibility.
-- `test_random_read.py`: Reads previously generated random numbers for reproducible experiments.
+- `hill_climbing_random.py`: Basic implementation (random numbers generated internally).
+- `hill_climbing_random_gen.py`: Generates random numbers and saves them to an external file for reproducibility.
+- `hill_climbing_random_read.py`: Reads previously generated random numbers for reproducible experiments.
 
 ---
 
