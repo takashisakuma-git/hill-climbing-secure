@@ -31,17 +31,17 @@ pip install -r requirements.txt
 ## How to Run
 Run the basic implementation:
 ```bash
-python src/test_random.py <party_id>
+python src/hill_climbing_random.py <party_id>
 ```
 Run with generated random numbers:
 ```bash
-python src/test_random_gen.py <party_id>
+python src/hill_climbing_random_gen.py <party_id>
 - This will create a file random_index_<timestamp>.txt in the current directory.
 ```
 Run with pre-generated random numbers:
 - Place the generated random index file in the working directory and run:
 ```bash
-python src/test_random_read.py <party_id>
+python src/hill_climbing_random_read.py <party_id>
 ```
 
 ---
