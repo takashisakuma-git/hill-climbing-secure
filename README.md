@@ -1,85 +1,93 @@
 # Secure Hill-Climbing Algorithm for Multi-Issue Negotiation
 
-This repository provides the source code for the hill-climbing algorithm used in our paper:
+This repository contains the source code for the secure multi-party computation (MPC) 
+programs used in the following paper:
 
-**Title:** [Fully Private Hill-Climbing Protocol for Multi-Issue Negotiation]  
-**Authors:** [Takashi SAKUMA, Shun OKUHARA, and Akinori KAWACHI]  
-**DOI:** [DOI or preprint link]
-
----
+> Takashi Sakuma, Shun Okuhara, and Akinori Kawachi,  
+> "Fully Private Hill-Climbing Protocol for Multi-Issue Negotiation,"  
+> IEICE Transactions on Information and Systems, Vol.E109-D, No.7, 2026.  
+> DOI: 10.1587/transinf.2025AHP0012
 
 ## Overview
-This code implements a secure hill-climbing algorithm for multi-issue negotiation using secret sharing.  
-We provide three versions for different purposes:
 
-- `hill_climbing_random.py`: Basic implementation (random numbers generated internally).
-- `hill_climbing_random_gen.py`: Generates random numbers and saves them to an external file for reproducibility.
-- `hill_climbing_random_read.py`: Reads previously generated random numbers for reproducible experiments.
+This repository implements a fully private hill-climbing protocol for multi-issue 
+negotiation based on secure multi-party computation (MPC), in which all intermediate 
+states generated during the negotiation process are concealed.
+The protocols are implemented using the csclib framework.
 
----
+## Files
+
+| File | Description |
+|------|-------------|
+| `hill_climbing_random_gen.py` | Generates random numbers and saves them to an external file for reproducibility |
+| `hill_climbing_random_read.py` | Reads previously generated random numbers for reproducible experiments |
+| `hill_climbing_random_random.py` | Basic implementation with internally generated random numbers |
+
+## Experimental Environment
+
+All experiments were conducted on the following environment:
+
+- **Machine**: MacBook Pro (14-inch)
+- **Processor**: Apple M3 Pro (11-core CPU, 14-core GPU, 16-core Neural Engine)
+- **Memory**: 18 GB unified memory
+- **Storage**: 512 GB SSD
+- **OS**: macOS
+- **MPC Framework**: csclib v20231212
 
 ## Requirements
+
 - Python 3.9+
-- `csclib` (custom library for secure computation)
+- csclib (v20231212)
 
 Install dependencies:
 ```bash
 pip install -r requirements.txt
-
----
-
-## How to Run
-Run the basic implementation:
-```bash
-python src/hill_climbing_random.py <party_id>
 ```
+
+## Usage
+
 Run with generated random numbers:
 ```bash
-python src/hill_climbing_random_gen.py <party_id>
-- This will create a file random_index_<timestamp>.txt in the current directory.
-```
-Run with pre-generated random numbers:
-- Place the generated random index file in the working directory and run:
-```bash
-python src/hill_climbing_random_read.py <party_id>
+python hill_climbing_random_gen.py <party_id>
 ```
 
----
+Run with pre-generated random numbers:
+```bash
+python hill_climbing_random_read.py <party_id>
+```
+
+Run basic implementation:
+```bash
+python hill_climbing_random_random.py <party_id>
+```
 
 ## Parameters
-- max_iterations: Maximum number of iterations (default: 100)
-- q: Modulus for secret sharing (default: 1024)
-- weights: Item weights (default: [10, 12, 7, 9, 21, 16])
-- capacity: Capacity constraint (default: 65)
-- patience: Maximum allowed iterations without improvement (default: 20)
 
----
+- `max_iterations`: Maximum number of iterations (default: 100)
+- `q`: Modulus for secret sharing (default: 1024)
+- `weights`: Item weights (default: [10, 12, 7, 9, 21, 16])
+- `capacity`: Capacity constraint (default: 65)
+- `patience`: Maximum allowed iterations without improvement (default: 20)
 
-## Stopping Criteria
-The algorithm stops when:
-- Stop when max_iterations is reached or when no improvement occurs for patience iterations.
+## Related Repository
 
----
-
-## Experimental Settings
-To reproduce experiments:
-Run test_random_gen.py to generate random numbers.
-Use the generated file with test_random_read.py.
-
----
+The source code for the fully private simulated annealing protocol is available at:  
+https://github.com/takashisakuma-git/simulated-annealing-secure
 
 ## License
+
 MIT License. See LICENSE for details.
 
 ## Citation
-If you use this code, please cite:
-@article{sakuma2025hillclimbing,
-author    = {Takashi Sakuma and Shun Okuhara and Akinori Kawachi},
-title     = {Fully Private Hill-Climbing Protocol for Multi-Issue Negotiation},
-journal   = {IEICE Transactions on Information and Systems},
-volume    = {E108-D},    % 実際の巻号を記載
-number    = {xx},        % 実際の号数を記載
-pages     = {xxx--xxx},  % ページ範囲を記載
-year      = {2025},
-doi       = {DOI or preprint link}
+
+```bibtex
+@article{sakuma2026hillclimbing,
+  author  = {Takashi Sakuma and Shun Okuhara and Akinori Kawachi},
+  title   = {Fully Private Hill-Climbing Protocol for Multi-Issue Negotiation},
+  journal = {IEICE Transactions on Information and Systems},
+  volume  = {E109-D},
+  number  = {7},
+  year    = {2026},
+  doi     = {10.1587/transinf.2025AHP0012}
 }
+```
